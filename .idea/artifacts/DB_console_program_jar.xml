@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="DB-console-program:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/DB_console_program_jar</output-path>
+    <root id="archive" name="DB-console-program.jar">
+      <element id="module-output" name="DB-console-program" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../ojdbc11.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
