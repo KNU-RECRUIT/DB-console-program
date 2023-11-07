@@ -1,6 +1,8 @@
 package lab7;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.sql.*;
 import java.util.Scanner;
 
@@ -33,15 +35,7 @@ public class Main {
             System.exit(1);
         }
 
-        // https://patorjk.com/software/taag/#p=display&f=Graffiti&t=RECRUIT
-        System.out.println("________________________________________ ____ ___.______________\n" +
-                            "\\______   \\_   _____/\\_   ___ \\______   \\    |   \\   \\__    ___/\n" +
-                            " |       _/|    __)_ /    \\  \\/|       _/    |   /   | |    |   \n" +
-                            " |    |   \\|        \\\\     \\___|    |   \\    |  /|   | |    |   \n" +
-                            " |____|_  /_______  / \\______  /____|_  /______/ |___| |____|   \n" +
-                            "        \\/        \\/         \\/       \\/                        \n" +
-                            "----------------------------------------------------------------");
-
+        Screen.title();
 
         // login
         Scanner scanner = new Scanner(System.in);
