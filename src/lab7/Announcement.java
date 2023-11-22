@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Announcement {
-	public static final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
+	public static final String URL = "jdbc:oracle:thin:@localhost:1521:orcl";
 	public static final String USER_UNIVERSITY ="university";
 	public static final String USER_PASSWD ="comp322";
 	public static final String TABLE_NAME = "POST_INFO";
@@ -31,6 +31,7 @@ public class Announcement {
 	public Announcement(String id)
 	{
 		this.MANAGER_ID = id;
+        JDBCReady();
 	}
 
     public void JDBCReady() {
