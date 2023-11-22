@@ -17,9 +17,12 @@ public class Announcement {
 	
 	    
 	public void instruction() {
-		System.out.println("1.");
-		
-		
+	        System.out.println("===============================");
+	        System.out.println("|원하시는 메뉴를 선택하여 주시기 바랍니다|");
+		System.out.println("|1. 내가 쓴 글 조회               |");
+	        System.out.println("|2. 게시글 관리자 조회(전체)        |");
+	        System.out.println("|3. 게시글 관리자 조회(부서 관리자급) |");
+		System.out.println("===============================");
 	}
 	
 	public Announcement(String id)
