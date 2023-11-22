@@ -84,6 +84,69 @@ public class Announcement {
                 System.out.println("|");
                 
             	}
+            	System.out.println("------------+----------+----------+-----|");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+            System.exit(1);
+        }
+
+        
+	}
+	public void QueryManagerOfDepartment() {
+		Connection conn = null; // Connection object
+	    Statement stmt = null;	// Statement object
+	    ResultSet rs = null;    // Resultset object
+		
+		try {
+            // Load a JDBC driver for Oracle DBMS
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+        }catch(ClassNotFoundException e) {
+            System.err.println("error = " + e.getMessage());
+            System.exit(1);
+        }
+
+        // Make a connection
+        try{
+            conn = DriverManager.getConnection(URL, USER_UNIVERSITY, USER_PASSWD);
+        }catch(SQLException ex) {
+            ex.printStackTrace();
+            System.err.println("Cannot get a connection: " + ex.getLocalizedMessage());
+            System.err.println("Cannot get a connection: " + ex.getMessage());
+            System.exit(1);
+        }
+
+            
+		String sql = "SELECT DISTINCT E.NAME, D.CONTACT, D.DEPARTMENT_ID FROM EMPLOYEE_INFO E, DEPARTMENT_INFO D, ANNOUNCEMENT_INFO A WHERE E.ID = D.HEAD_ID AND A.MANAGER_ID = E.ID";
+
+        // check if the user exists
+        try {
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+            if (!rs.next()) {
+                System.out.println("인증에 실패하였습니다. 프로그램을 종료합니다.");
+                System.exit(1);
+            }
+            else {
+            	System.out.printf("%-4s|%-10s|%-4s|\n","이름", "전화번호(Phone)", "부서");
+            	System.out.println("=========================");
+            	while(rs.next())
+            	{
+                String Name = rs.getString(1);
+                String Phone = rs.getString(2);
+                String Department = rs.getString(3);
+                
+                
+                
+                System.out.print(Name);
+                System.out.print("|");
+                System.out.print(Phone);
+                System.out.print("|");
+                System.out.print(Department);
+                System.out.println("|");
+   
+            	}
+            	System.out.println("=========================");
             }
         } catch (SQLException e) {
             System.out.println("Error: " + e.getMessage());
