@@ -29,7 +29,30 @@ public class Announcement {
 	{
 		this.MANAGER_ID = id;
 	}
-	
+
+    public void JDBCReady() {
+        Connection conn = null; // Connection object
+        Statement stmt = null;	// Statement object
+        ResultSet rs = null;    // Resultset object
+
+        try {
+            // Load a JDBC driver for Oracle DBMS
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+        }catch(ClassNotFoundException e) {
+            System.err.println("error = " + e.getMessage());
+            System.exit(1);
+        }
+
+        // Make a connection
+        try{
+            conn = DriverManager.getConnection(URL, USER_UNIVERSITY, USER_PASSWD);
+        }catch(SQLException ex) {
+            ex.printStackTrace();
+            System.err.println("Cannot get a connection: " + ex.getLocalizedMessage());
+            System.err.println("Cannot get a connection: " + ex.getMessage());
+            System.exit(1);
+        }
+    }
 	public void QueryMyAnnouncement() {
 		Connection conn = null; // Connection object
 	    Statement stmt = null;	// Statement object
